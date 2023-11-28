@@ -41,6 +41,7 @@ export default defineNuxtConfig({
   },
 
   app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       viewport: 'width=device-width,initial-scale=1',
       link: [
@@ -55,9 +56,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-
   pwa,
-
   devtools: {
     enabled: true,
   },

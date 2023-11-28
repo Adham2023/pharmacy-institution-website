@@ -41,5 +41,9 @@
     "json",
     "jsonc",
     "yaml"
+  ],
+  "cSpell.words": [
+    "hamshira",
+    "herobg"
   ]
 }

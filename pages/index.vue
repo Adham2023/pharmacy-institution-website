@@ -1,23 +1,27 @@
 <script setup lang="ts">
-const online = useOnline()
+definePageMeta({
+  layout: 'home',
+})
 </script>
 
 <template>
-  <div>
-    <Logos mb-6 />
-    <Suspense>
-      <ClientOnly>
-        <PageView v-if="online" />
-        <div v-else text-gray:80>
-          You're offline
-        </div>
-      </ClientOnly>
-      <template #fallback>
-        <div italic op50>
-          <span animate-pulse>Loading...</span>
-        </div>
-      </template>
-    </Suspense>
-    <InputEntry />
-  </div>
+  <main>
+    <HeroSection />
+    <ListOfCoursesSection />
+    <div h-5rem />
+    <StatsSection />
+    <div h-5rem />
+    <WebinarsSection />
+    <div h-5rem />
+    <TeachersSection />
+    <div h-5rem />
+    <LinksSection />
+    <div h-5rem />
+    <HamkorSaytlar />
+    <div h-5rem />
+    <AboutCertifiate />
+    <div h-5rem />
+    <PurposeSection />
+    <OnlineLibrary />
+  </main>
 </template>
