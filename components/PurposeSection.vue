@@ -9,7 +9,7 @@ const show_template = computed(() => breakpoints.greaterOrEqual('lg'))
 <template>
   <div bg="#0037A0" grid grid-cols="[1/2_auto]" grid-rows-1 text-white>
     <div v-if="show_template.value" grid-col-span-1 grid-col-start-2 grid-row-start-1>
-      <img v-if="show_template.value" h-full w-full object-cover src="sAj8HCldts5fdl39S_QIuIXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY.jpg" alt="" srcset="">
+      <img v-if="show_template.value" h-full w-full object-cover src="/images/aa.jpg" alt="" srcset="">
     </div>
     <div grid-col-span-2 flex="~" grid-col-start-1 grid-row-start-1 mx-auto container>
       <div id="texts" bg="#0037A0" flex="~ gap-5 col" w-full p-6 lg:w="1/2">
@@ -21,22 +21,22 @@ const show_template = computed(() => breakpoints.greaterOrEqual('lg'))
         </p>
         <div my-auto flex="~ col gap-5" text-white>
           <div flex="~ gap-3" items-center>
-            <img h-5 w-5 src="p1.png"> <span>Foydalanuvchilarning shaxsiy ma’lumotlari asosida ularga login parol yaratish, mazkur login parol yaratish asosida ular shaxsiy kabinetiga kirib malaka oshirishini ta’minlash</span>
+            <img h-5 w-5 src="/images/p1.png"> <span>Foydalanuvchilarning shaxsiy ma’lumotlari asosida ularga login parol yaratish, mazkur login parol yaratish asosida ular shaxsiy kabinetiga kirib malaka oshirishini ta’minlash</span>
           </div>
           <div flex="~ gap-3" items-center>
-            <img h-5 w-5 src="p2.png"> <span>Ma’lumotlarni uzoq vaqt saqlash, shaxsiy ma’lumotlar va ma’lumotlar bazasi xavfsizligini ta’minlash</span>
+            <img h-5 w-5 src="/images/p2.png"> <span>Ma’lumotlarni uzoq vaqt saqlash, shaxsiy ma’lumotlar va ma’lumotlar bazasi xavfsizligini ta’minlash</span>
           </div>
           <div flex="~ gap-3" items-center>
-            <img h-5 w-5 src="p3.png"> <span>Uzluksiz va mustaqil vaqt belgilab malaka oshirishni ta’minlash</span>
+            <img h-5 w-5 src="/images/p3.png"> <span>Uzluksiz va mustaqil vaqt belgilab malaka oshirishni ta’minlash</span>
           </div>
           <div flex="~ gap-3" items-center>
-            <img h-5 w-5 src="p4.png"> <span>Respublika bo‘yicha farmatsevtika tizimida faoliyat yuritayotgan rahbar va ishchi xodimlarning elektron bazasini shakllantirish</span>
+            <img h-5 w-5 src="/images/p4.png"> <span>Respublika bo‘yicha farmatsevtika tizimida faoliyat yuritayotgan rahbar va ishchi xodimlarning elektron bazasini shakllantirish</span>
           </div>
           <div flex="~ gap-3" items-center>
-            <img h-5 w-5 src="p6.png"> <span>Foydalanuvchilarning o‘zaro bir birlari bilan doimiy onlayn muloqotini tashkil etish</span>
+            <img h-5 w-5 src="/images/p6.png"> <span>Foydalanuvchilarning o‘zaro bir birlari bilan doimiy onlayn muloqotini tashkil etish</span>
           </div>
           <div flex="~ gap-3" items-center>
-            <img h-5 w-5 src="p7.png"> <span>Dori-darmon mahsulotlarini qonuniy rasmiylashtirish va ro‘yhatga olish</span>
+            <img h-5 w-5 src="/images/p7.png"> <span>Dori-darmon mahsulotlarini qonuniy rasmiylashtirish va ro‘yhatga olish</span>
           </div>
         </div>
       </div>

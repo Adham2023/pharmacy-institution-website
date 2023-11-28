@@ -9,7 +9,7 @@ const show_template = computed(() => breakpoints.greaterOrEqual('lg'))
 <template>
   <div bg="#ebebeb" grid grid-cols="[1/2_auto]" grid-rows-1>
     <div v-if="show_template.value" grid-col-span-1 grid-col-start-2 grid-row-start-1>
-      <img v-if="show_template.value" h-full w-full object-cover src="cmp.png" alt="" srcset="">
+      <img v-if="show_template.value" h-full w-full object-cover src="/images/cmp.png" alt="" srcset="">
     </div>
     <div grid-col-span-2 flex="~" grid-col-start-1 grid-row-start-1 mx-auto container>
       <div id="texts" bg="" flex="~ gap-5 col" w-full p-6 pb-0 lg:w="1/2">
@@ -21,7 +21,7 @@ const show_template = computed(() => breakpoints.greaterOrEqual('lg'))
         </p>
         <div my-auto flex="~  gap-5 wrap">
           <div bg="#E5F4FF" flex="~ col gap-5" h-30 w-full items-center rounded-lg p-5 sm:w-30>
-            <img h-5 src="l1.png" alt="" srcset="">
+            <img h-5 src="/images/l1.png" alt="" srcset="">
             <div flex="~ col" text-xs>
               <span> ONLAYN</span>
               <span>
@@ -30,7 +30,7 @@ const show_template = computed(() => breakpoints.greaterOrEqual('lg'))
             </div>
           </div>
           <div bg="#E5F4FF" flex="~ col gap-5" h-30 w-full items-center rounded-lg p-5 sm:w-30>
-            <img h-5 src="l2.png" alt="" srcset="">
+            <img h-5 src="/images/l2.png" alt="" srcset="">
             <div flex="~ col" text-xs>
               <span> YUKLAB</span>
               <span>
@@ -39,7 +39,7 @@ const show_template = computed(() => breakpoints.greaterOrEqual('lg'))
             </div>
           </div>
           <div bg="#E5F4FF" flex="~ col gap-5" h-30 w-full items-center rounded-lg p-5 sm:w-30>
-            <img h-5 src="l3.png" alt="" srcset="">
+            <img h-5 src="/images/l3.png" alt="" srcset="">
             <div flex="~ col" text-xs>
               <span> KITOB</span>
               <span>
@@ -48,7 +48,7 @@ const show_template = computed(() => breakpoints.greaterOrEqual('lg'))
             </div>
           </div>
           <div bg="#E5F4FF" flex="~ col gap-5" h-30 w-full items-center rounded-lg p-5 sm:w-40>
-            <img h-5 src="l4.png" alt="" srcset="">
+            <img h-5 src="/images/l4.png" alt="" srcset="">
             <div flex="~ col" text-xs>
               <span> QR KODI ORQALI</span>
               <span>

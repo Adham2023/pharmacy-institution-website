@@ -13,25 +13,22 @@ function formatCurrency(value) {
 </script>
 
 <template>
-  <nuxt-link :to="`/course/${course.id}`" max-w-full overflow-hidden rounded-lg bg-white shadow-lg md:max-w-xs>
+  <NuxtLink :to="`/course/${course.id}`" flex="~ col" max-w-full overflow-hidden rounded-lg bg-white shadow-lg md:max-w-xs>
     <img h-50 w-full object-cover :src="course.image" alt="Course Image">
-    <div px-4 py-4>
-      <div mb-2 text-sm font-300 text-gray-400>
+    <div flex="~ col">
+      <div mb-2 px-4 text-sm font-300 text-gray-400>
         {{ course.date }}
       </div>
-      <div mb-2 uppercase>
+      <div px-4>
+        <span v-if="course.free" bg="#FF0000" rounded-sm text-white>Bepul</span>
+        <span v-else bg="" rounded-sm font-bold text-zinc-800>{{ formatCurrency(course.price) }}</span>
+      </div>
+      <div mb-2 px-4 uppercase>
         {{ course.title }}
       </div>
-      <div class="mb-2 flex items-center">
-        <span v-if="course.free" bg="#FF0000" rounded-sm px-2 text-white>Bepul</span>
-        <span v-else bg="#0066B9" rounded-sm px-2 text-white>{{ formatCurrency(course.price) }}</span>
-        <span class="ml-auto flex">
-          <star-rating :rating="course.rating" />
-        </span>
-      </div>
-      <div flex="~" items-center justify-between text="#0066B9" font-thin>
+
+      <div mb-1 flex="~" text="#0066B9" items-center justify-between px-4 font-thin>
         <div class="flex items-center">
-          <!-- duration icon -->
           <i i-carbon-time />
           <span class="ml-1 text-sm">{{ course.duration }} soat</span>
         </div>
@@ -46,10 +43,18 @@ function formatCurrency(value) {
           </div>
         </div>
       </div>
+      <div px-4 class="mb-2 flex items-center">
+        <span class="ml-auto flex">
+          <star-rating :rating="course.rating" />
+        </span>
+      </div>
     </div>
-  </nuxt-link>
+    <button mt-auto w-full bg-green-500 py-3 text-center text-sm uppercase text-white>
+      Kirish
+    </button>
+  </NuxtLink>
 </template>
 
-  <style scoped>
-  /* Additional styling if needed */
-  </style>
+<style scoped>
+/* Additional styling if needed */
+</style>

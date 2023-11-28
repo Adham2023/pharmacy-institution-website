@@ -2,7 +2,7 @@
 const lessons = [
   {
     id: 1,
-    image: 'sAj8HCldts5fdl39S_QIuIXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY.jpg',
+    image: '/images/aa.jpg',
     title: 'PEDAGOGNING KREATIV KOMPETENTLIGINI...',
     author: 'Palankasov P.Pa',
     id: '123456',
@@ -11,7 +11,7 @@ const lessons = [
   },
   {
     id: 2,
-    image: 'sAj8HCldts5fdl39S_QIuIXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY.jpg',
+    image: '/images/aa.jpg',
     title: 'PEDAGOGNING KREATIV KOMPETENTLIGINI...',
     author: 'Palankasov P.Pa',
     id: '123456',
@@ -20,7 +20,7 @@ const lessons = [
   },
   {
     id: 3,
-    image: 'sAj8HCldts5fdl39S_QIuIXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY.jpg',
+    image: '/images/aa.jpg',
     title: 'PEDAGOGNING KREATIV KOMPETENTLIGINI...',
     author: 'Palankasov P.Pa',
     id: '123456',
@@ -29,7 +29,7 @@ const lessons = [
   },
   {
     id: 4,
-    image: 'sAj8HCldts5fdl39S_QIuIXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY.jpg',
+    image: '/images/aa.jpg',
     title: 'PEDAGOGNING KREATIV KOMPETENTLIGINI...',
     author: 'Palankasov P.Pa',
     id: '123456',

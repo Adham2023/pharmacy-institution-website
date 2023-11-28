@@ -15,7 +15,7 @@ const courses = [
   {
     id: 2,
     image: '/images/hamshira2.png',
-    title: 'Course Title 1',
+    title: 'Course Title 1 asdasdasd asdads asd asd',
     description: 'Some description for course 1',
     date: '15.09.2023',
     free: true,
@@ -49,6 +49,42 @@ const courses = [
     price: 1400000, // or the price in smallest currency unit like cents
     rating: 3,
   },
+  {
+    id: 5,
+    image: '/images/hamshira2.png',
+    title: 'Course Title 1',
+    description: 'Some description for course 1',
+    date: '15.09.2023',
+    duration: 36,
+    students: 336,
+    likes: 1234,
+    price: 1400000, // or the price in smallest currency unit like cents
+    rating: 3,
+  },
+  {
+    id: 6,
+    image: '/images/hamshira2.png',
+    title: 'Course Title 1',
+    description: 'Some description for course 1',
+    date: '15.09.2023',
+    duration: 36,
+    students: 336,
+    likes: 1234,
+    price: 1400000, // or the price in smallest currency unit like cents
+    rating: 3,
+  },
+  {
+    id: 7,
+    image: '/images/hamshira2.png',
+    title: 'Course Title 1',
+    description: 'Some description for course 1',
+    date: '15.09.2023',
+    duration: 36,
+    students: 336,
+    likes: 1234,
+    price: 1400000, // or the price in smallest currency unit like cents
+    rating: 3,
+  },
   // ... more courses
 ]
 
@@ -60,21 +96,21 @@ const courses = [
 </script>
 
 <template>
-  <section class="mx-auto p-6 container">
+  <section class="mx-auto p-6 container" mb-5rem>
     <div flex="~" mt-2em justify-between py-1em>
       <h2 text-2xl font-400 text="#0037A0">
         Kurslar ro'yxati
       </h2>
-      <NuxtLink to="/courses" bg="#F5F5F5" flex="~ gap-2" items-center rounded-md p-2 font-300 class="text-[#0071DC]">
-        Barcha kurslarni ko`rish <div i-carbon-arrow-right />
-      </NuxtLink>
     </div>
-    <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2">
-      <CourseCard
+    <div mb-1rem class="grid grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2">
+      <CoursePageCard
         v-for="course in courses"
         :key="course.id"
         :course="course"
       />
     </div>
+    <button bg="#efefef" flex="~ gap-2" items-center rounded-md p-2 font-300 text="#0071DC">
+      30 / 20  Barcha kurslarni ko`rish <div i-carbon-arrow-right />
+    </button>
   </section>
 </template>

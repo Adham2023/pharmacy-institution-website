@@ -4,7 +4,7 @@ import TeacherCard from '~/components/TeacherCard.vue'
 const teachers = [
   {
     id: 1,
-    image: 'Ellipse 8322.png',
+    image: '/images/Ellipse 8322.png',
     fullName: 'Palankasova Palonkas Palonkasovna',
     title: 'P.F.N, Dotsent',
     modulesLabel: 'Modullar',
@@ -17,7 +17,7 @@ const teachers = [
   },
   {
     id: 1,
-    image: 'Ellipse 8322.png',
+    image: '/images/Ellipse 8322.png',
     fullName: 'Palankasova Palonkas Palonkasovna',
     title: 'P.F.N, Dotsent',
     modulesLabel: 'Modullar',
@@ -30,7 +30,7 @@ const teachers = [
   },
   {
     id: 1,
-    image: 'Ellipse 8322.png',
+    image: '/images/Ellipse 8322.png',
     fullName: 'Palankasova Palonkas Palonkasovna',
     title: 'P.F.N, Dotsent',
     modulesLabel: 'Modullar',
@@ -43,7 +43,7 @@ const teachers = [
   },
   {
     id: 1,
-    image: 'Ellipse 8322.png',
+    image: '/images/Ellipse 8322.png',
     fullName: 'Palankasova Palonkas Palonkasovna',
     title: 'P.F.N, Dotsent',
     modulesLabel: 'Modullar',

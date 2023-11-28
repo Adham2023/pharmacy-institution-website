@@ -2,7 +2,7 @@
   <div text="white" flex="~ col" bg="#0037A0" p-1em class="">
     <div flex="~ col" mx-auto mb-1em items-start gap-4 container>
       <div rounded-full bg-white p-2>
-        <img xs:w-auto w-13rem src="logo.png" alt="Pharma-Study web sahifasi" srcset="">
+        <img xs:w-auto w-13rem src="/logo.png" alt="Pharma-Study web sahifasi" srcset="">
       </div>
       <div flex="~ col wrap gap-1em" md:flex="~ row" w-full md:justify-between>
         <div flex="~ col" w-20rem text-left xl:text-1em>

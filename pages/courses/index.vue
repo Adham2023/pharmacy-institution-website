@@ -5,7 +5,8 @@ definePageMeta({
 </script>
 
 <template>
-  <div>
-    Courses
-  </div>
+  <main>
+    <HeroSectionCourse />
+    <ListOfCoursesPageSection />
+  </main>
 </template>

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+definePageMeta({
+  layout: 'home',
+})
 const router = useRouter()
 </script>
 

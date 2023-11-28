@@ -20,18 +20,18 @@ const show_template = computed(() => breakpoints.greaterOrEqual('lg'))
       </p>
       <div my-auto flex="~ col gap-5" text-black>
         <div flex="~ gap-3">
-          <img w-5 src="point-icon.png"> <span>Davlat na’munasidagi sertifikat</span>
+          <img w-5 src="/images/point-icon.png"> <span>Davlat na’munasidagi sertifikat</span>
         </div>
         <div flex="~ gap-3">
-          <img w-5 src="point-icon.png"> <span>QR-kod yordamida xavfsizlikni ta’minlash</span>
+          <img w-5 src="/images/point-icon.png"> <span>QR-kod yordamida xavfsizlikni ta’minlash</span>
         </div>
         <div flex="~ gap-3">
-          <img w-5 src="point-icon.png"> <span>Kredit modullar kesimida baholash</span>
+          <img w-5 src="/images/point-icon.png"> <span>Kredit modullar kesimida baholash</span>
         </div>
       </div>
     </div>
     <div>
-      <img v-if="show_template.value" w-full src="certificate template.png" alt="" srcset="">
+      <img v-if="show_template.value" w-full src="/images/certificate template.png" alt="" srcset="">
     </div>
   </div>
 </template>
