@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
   ],
+  plugins: ['@/plugins/reset-scroll'],
 
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
@@ -41,6 +42,7 @@ export default defineNuxtConfig({
   },
 
   app: {
+
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'page', mode: 'out-in' },
     head: {

@@ -13,8 +13,8 @@ function formatCurrency(value) {
 </script>
 
 <template>
-  <NuxtLink :to="`/course/${course.id}`" flex="~ col" max-w-full overflow-hidden rounded-lg bg-white shadow-lg md:max-w-xs>
-    <img h-50 w-full object-cover :src="course.image" alt="Course Image">
+  <NuxtLink :to="`/course/${course.slug}`" flex="~ col" max-w-full overflow-hidden rounded-lg bg-white shadow-lg md:max-w-xs>
+    <img h-50 w-full object-cover :src="course.poster" alt="Course Image">
     <div flex="~ col">
       <div mb-2 px-4 text-sm font-300 text-gray-400>
         {{ course.date }}
@@ -49,9 +49,9 @@ function formatCurrency(value) {
         </span>
       </div>
     </div>
-    <button mt-auto w-full bg-green-500 py-3 text-center text-sm uppercase text-white>
+    <!-- <button mt-auto w-full bg-green-500 py-3 text-center text-sm uppercase text-white>
       Kirish
-    </button>
+    </button> -->
   </NuxtLink>
 </template>
 
