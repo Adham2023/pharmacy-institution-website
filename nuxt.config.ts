@@ -1,15 +1,34 @@
+import process from 'node:process'
 import { pwa } from './config/pwa'
 import { appDescription } from './constants/index'
 
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      baseUrlProduction: process.env.BASE_URL_PRODUCTION,
+      baseUrlDevelopment: process.env.BASE_URL_DEVELOPMENT,
+    },
+  },
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
+    '@nuxt/content',
+    '@sidebase/nuxt-auth',
   ],
-  plugins: ['@/plugins/reset-scroll'],
+  auth: {
+    isEnabled: true,
+    baseURL: process.env.AUTH_ORIGIN,
+    provider: {
+      type: 'authjs',
+    },
+    globalAppMiddleware: {
+      isEnabled: true,
+    },
+  },
+  // plugins: ['@/plugins/reset-scroll'],
 
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
@@ -22,6 +41,7 @@ export default defineNuxtConfig({
 
   css: [
     '@unocss/reset/tailwind.css',
+    'vue3-pdf-app/dist/icons/main.css',
   ],
 
   colorMode: {
@@ -42,7 +62,6 @@ export default defineNuxtConfig({
   },
 
   app: {
-
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'page', mode: 'out-in' },
     head: {
@@ -62,5 +81,35 @@ export default defineNuxtConfig({
   pwa,
   devtools: {
     enabled: true,
+  },
+  content: {
+    highlight: {
+      theme: 'solarized-light',
+      preload: ['ts', 'tsx', 'js', 'swift', 'scss', 'css'],
+    },
+    markdown: {
+      rehypePlugins: [
+        [
+          'rehype-add-classes',
+          {
+            h1: 'text-4xl font-mplus font-bold gray-h1 mb-1em',
+            h2: 'text-2xl font-mplus font-bold',
+            h3: 'text-xl font-mplus font-bold',
+            h4: 'text-lg font-mplus font-bold',
+            h5: 'font-mplus font-bold',
+            h6: 'font-mplus font-bold',
+            // img: 'bdy-img text-center border b-red-400',
+            // p: 'mb-1em mt-1em aaa',
+            a: 'underline underline-offset-2 hover:text-orange-500 decoration-orange-500',
+            ul: 'list-disc',
+            li: 'list-disc',
+          },
+        ],
+      ],
+      toc: {
+        depth: 3,
+        searchDepth: 3,
+      },
+    },
   },
 })

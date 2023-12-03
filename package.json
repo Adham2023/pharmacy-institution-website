@@ -13,12 +13,24 @@
     "lint": "eslint .",
     "typecheck": "vue-tsc --noEmit"
   },
+  "dependencies": {
+    "@nuxt/content": "^2.9.0",
+    "@tato30/vue-pdf": "^1.8.1",
+    "add": "^2.0.6",
+    "axios": "^1.6.2",
+    "next-auth": "4.21.1",
+    "pspdfkit": "^2023.5.3",
+    "rehype-add-classes": "^1.0.0",
+    "vue3-pdf-app": "^1.0.3"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^1.0.0-beta.27",
     "@iconify-json/carbon": "^1.1.21",
     "@iconify-json/twemoji": "^1.1.12",
+    "@nuxt/image": "^1.1.0",
     "@nuxtjs/color-mode": "^3.3.0",
     "@pinia/nuxt": "^0.5.1",
+    "@sidebase/nuxt-auth": "0.6.3-alpha.1",
     "@unocss/eslint-config": "^0.56.5",
     "@unocss/nuxt": "^0.56.5",
     "@vite-pwa/nuxt": "^0.1.1",

@@ -46,9 +46,9 @@
     <div flex="~ gap-5" mx-auto border-t-1 py-5 container>
       <span>Copyright 2023 | All Rights Reserved </span>
       <div flex="~ gap-3" items-center>
-        <img w-5 src="Icons/Facebook/Facebook.png" alt="" srcset="">
-        <img w-5 src="Icons/Twitter/twitter.png" alt="" srcset="">
-        <img w-5 src="Icons/Instagram/Instagram.png" alt="" srcset="">
+        <img w-5 src="/Icons/Facebook/Facebook.png" alt="" srcset="">
+        <img w-5 src="/Icons/Twitter/twitter.png" alt="" srcset="">
+        <img w-5 src="/Icons/Instagram/Instagram.png" alt="" srcset="">
       </div>
     </div>
   </div>

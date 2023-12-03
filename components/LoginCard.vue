@@ -23,7 +23,7 @@
 
     <div class="mb-6 flex justify-center gap-4">
       <button class="flex items-center border rounded-lg px-4 py-2">
-        <img src="oneId.png" alt="ONE ID" class="mr-2 h-6">
+        <img src="/images/oneId.png" alt="ONE ID" class="mr-2 h-6">
       </button>
       <button class="flex items-center border rounded-lg px-4 py-2">
         <div i-carbon-logo-google class="mr-2 h-6 text-red" />

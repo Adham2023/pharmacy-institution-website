@@ -37,7 +37,7 @@ function formatCurrency(value) {
         </div>
         <div flex="~ gap-3">
           <div class="flex items-center">
-            <img src="student.svg" alt="">
+            <img src="/images/student.svg" alt="">
             <span class="ml-1 text-sm">{{ course.students }}</span>
           </div>
           <div class="flex items-center">

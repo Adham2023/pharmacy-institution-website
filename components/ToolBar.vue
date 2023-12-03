@@ -1,3 +1,7 @@
+<script setup>
+const { status, signIn } = useAuth()
+</script>
+
 <template>
   <div h-3rem w-full class="bg-[#0037A0] text-white">
     <div mx-auto flex="~" h-full items-center justify-between px-2 container>
@@ -19,9 +23,12 @@
           </span>
           <input type="search" name="q" class="rounded-full py-2 pl-10 pr-2 text-sm focus:text-gray-900 focus:outline-none" placeholder="Search..." autocomplete="off">
         </div> -->
-        <button rounded-full bg-white px-5 text="#0037A0">
+        <button v-if="status === 'unauthenticated'" rounded-full bg-white px-5 text="#0037A0" @click="signIn()">
           Kirish
         </button>
+        <NuxtLink rounded-full bg-white px-5 text="#0037A0" to="/profile">
+          Profil
+        </NuxtLink>
       </div>
     </div>
   </div>
