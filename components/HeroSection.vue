@@ -1,5 +1,6 @@
 <script setup>
 // const { status } = useAuth()
+const auth = useAuthStore()
 </script>
 
 <template>
@@ -25,7 +26,7 @@
       <div flex="~" grid-col-start-1 grid-row-start-1 justify-center>
         <img scale-95 xl:scale-100 src="/images/hamshira.png" alt="" srcset="">
       </div>
-      <div z-20 grid-col-start-1 grid-row-start-1 self-center justify-self-end>
+      <div v-if="!auth.isLoggedIn" z-20 grid-col-start-1 grid-row-start-1 self-center justify-self-end>
         <LoginCard />
       </div>
     </div>
