@@ -1,5 +1,5 @@
 <script setup>
-const { status, signIn } = useAuth()
+// const { status, signIn, signOut } = useAuth()
 </script>
 
 <template>
@@ -23,12 +23,17 @@ const { status, signIn } = useAuth()
           </span>
           <input type="search" name="q" class="rounded-full py-2 pl-10 pr-2 text-sm focus:text-gray-900 focus:outline-none" placeholder="Search..." autocomplete="off">
         </div> -->
-        <button v-if="status === 'unauthenticated'" rounded-full bg-white px-5 text="#0037A0" @click="signIn()">
+        <button rounded-full bg-white px-5 text="#0037A0">
           Kirish
         </button>
-        <NuxtLink rounded-full bg-white px-5 text="#0037A0" to="/profile">
-          Profil
-        </NuxtLink>
+        <!-- <div v-else>
+          <button rounded-full bg-white px-5 text="#0037A0" @click="signOut({ redirect: true, callbackUrl: '/' })">
+            Chiqish
+          </button>
+          <NuxtLink rounded-full bg-white px-5 text="#0037A0" to="/profile">
+            Profil
+          </NuxtLink>
+        </div> -->
       </div>
     </div>
   </div>

@@ -8,7 +8,9 @@ defineProps({
 
 function formatCurrency(value) {
   // You can implement more complex logic here if needed
-  return `${value.toLocaleString().replaceAll(',', ' ')} so'm`
+  if (value)
+    return `${value.toLocaleString().replaceAll(',', ' ')} so'm`
+  else return ''
 }
 </script>
 

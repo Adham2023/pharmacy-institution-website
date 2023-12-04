@@ -9,6 +9,7 @@ export default defineNuxtConfig({
       baseUrlDevelopment: process.env.BASE_URL_DEVELOPMENT,
     },
   },
+  // ssr: false,
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
@@ -16,19 +17,10 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
     '@nuxt/content',
-    '@sidebase/nuxt-auth',
+    // '@sidebase/nuxt-auth',
   ],
-  auth: {
-    isEnabled: true,
-    baseURL: process.env.AUTH_ORIGIN,
-    provider: {
-      type: 'authjs',
-    },
-    globalAppMiddleware: {
-      isEnabled: true,
-    },
-  },
-  // plugins: ['@/plugins/reset-scroll'],
+
+  plugins: ['@/plugins/reset-scroll'],
 
   experimental: {
     // when using generate, payload js assets included in sw precache manifest

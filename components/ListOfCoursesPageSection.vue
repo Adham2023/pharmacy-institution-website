@@ -1,6 +1,11 @@
-<script setup>
-const { data, pending } = await useFetch(`http://localhost:2000/courses/`, {
+<script setup lang="ts">
+const courseStore = useCourseStore()
+
+const { data: courses, pending } = await useFetch<ICourse[]>(`https://api.pharma-study.uz/courses`, {
+  credentials: 'include',
 })
+
+courseStore.setCourses(courses.value)
 </script>
 
 <template>
@@ -12,13 +17,13 @@ const { data, pending } = await useFetch(`http://localhost:2000/courses/`, {
     </div>
     <div mb-1rem class="grid grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2">
       <CoursePageCard
-        v-for="course in data"
-        :key="course.id"
+        v-for="course in courseStore.courses_list"
+        :key="course._id"
         :course="course"
       />
     </div>
     <button bg="#efefef" flex="~ gap-2" items-center rounded-md p-2 font-300 text="#0071DC">
-      30 / 20  Barcha kurslarni ko`rish <div i-carbon-arrow-right />
+      2 / 21  Barcha kurslarni ko`rish <div i-carbon-arrow-right />
     </button>
   </section>
 </template>

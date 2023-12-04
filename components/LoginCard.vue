@@ -1,3 +1,18 @@
+<script setup lang="ts">
+// const { signIn, status } = useAuth()
+
+const credentials = reactive({
+  username: '',
+  password: '',
+})
+
+async function Login() {
+  const { data } = await useFetch('https://api.pharma-study.uz/auth/login', { method: 'post', body: credentials, credentials: 'include' })
+  // eslint-disable-next-line no-console
+  console.log('data', data)
+}
+</script>
+
 <template>
   <!-- <div class="h-27rem w-27rem bg-white"> -->
   <div class="mx-auto mt-10 w-sm rounded-lg bg-white p-6 shadow-md xl:w-md">
@@ -7,15 +22,17 @@
     <div class="mb-6 space-y-4">
       <div class="flex items-center border-1 rounded-lg p-2">
         <i class="i-carbon-user text-gray-400" />
-        <input class="w-full pl-2 outline-none" type="text" placeholder="Login">
+        <input v-model="credentials.username" class="w-full pl-2 outline-none" type="text" placeholder="Login">
       </div>
       <div class="flex items-center border-1 rounded-lg p-2">
         <i class="i-carbon-locked text-gray-400" />
-        <input class="w-full pl-2 outline-none" type="password" placeholder="Parol">
+        <input v-model="credentials.password" class="w-full pl-2 outline-none" type="password" placeholder="Parol">
       </div>
     </div>
-    <button class="w-full rounded-lg bg-[#0037A0] py-2 text-white">
-      Kirish
+    <button class="w-full rounded-lg bg-[#0037A0] py-2 text-white" @click="Login()">
+      Kirish a <div i-carbon-circle-dash>
+        ...
+      </div>
     </button>
     <div class="my-6 text-center">
       <span class="text-gray-400">Boshqa yo'l bilan kirish</span>

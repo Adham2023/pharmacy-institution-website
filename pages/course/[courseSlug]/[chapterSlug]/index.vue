@@ -1,14 +1,22 @@
+<!-- eslint-disable no-console -->
 <script setup>
 definePageMeta({
   layout: 'course',
 })
 const route = useRoute()
 const courseStore = useCourseStore()
-courseStore.setCurrentChapter(route.params.chapterSlug)
+watch(route, (old_val, new_val) => {
+  console.log('old, new val', old_val, new_val)
+  courseStore.setCurrentChapter(route.params.chapterSlug)
+}, { deep: true })
+onMounted(() => {
+  console.log('chapter mounted')
+  courseStore.setCurrentChapter(route.params.chapterSlug)
+})
 </script>
 
 <template>
-  <div break-words pt-1em text-wrap>
+  <div id="chapter-title" break-words pt-2.5em text-wrap>
     <div v-if="courseStore.chapter">
       <h2 text-center text-2xl font-bold>
         {{ courseStore.chapter.title }}
