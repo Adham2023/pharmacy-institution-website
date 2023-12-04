@@ -1,16 +1,10 @@
 <script setup lang="ts">
 // const { signIn, status } = useAuth()
-
+const auth = useAuthStore()
 const credentials = reactive({
   username: '',
   password: '',
 })
-
-async function Login() {
-  const { data } = await useFetch('https://api.pharma-study.uz/auth/login', { method: 'post', body: credentials, credentials: 'include' })
-  // eslint-disable-next-line no-console
-  console.log('data', data)
-}
 </script>
 
 <template>
@@ -29,7 +23,7 @@ async function Login() {
         <input v-model="credentials.password" class="w-full pl-2 outline-none" type="password" placeholder="Parol">
       </div>
     </div>
-    <button class="w-full rounded-lg bg-[#0037A0] py-2 text-white" @click="Login()">
+    <button class="w-full rounded-lg bg-[#0037A0] py-2 text-white" @click="auth.Login(credentials)">
       Kirish a <div i-carbon-circle-dash>
         ...
       </div>

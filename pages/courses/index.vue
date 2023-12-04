@@ -7,8 +7,8 @@ definePageMeta({
 <template>
   <main>
     <HeroSectionCourse />
-    <ClientOnly>
-      <ListOfCoursesPageSection />
-    </ClientOnly>
+    <!-- <ClientOnly> -->
+    <ListOfCoursesPageSection />
+    <!-- </ClientOnly> -->
   </main>
 </template>

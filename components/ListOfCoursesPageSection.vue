@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const courseStore = useCourseStore()
 
-const { data: courses, pending } = await useFetch<ICourse[]>(`https://api.pharma-study.uz/courses`, {
-  credentials: 'include',
+const { data: courses, pending } = await useApiFetch<ICourse[]>(`/courses`, {
+  method: 'GET',
 })
 
 courseStore.setCourses(courses.value)

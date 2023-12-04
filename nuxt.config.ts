@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     // '@sidebase/nuxt-auth',
   ],
 
-  plugins: ['@/plugins/reset-scroll'],
+  plugins: ['@/plugins/reset-scroll', '@/plugins/loadUser'],
 
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
