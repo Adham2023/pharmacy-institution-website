@@ -23,7 +23,7 @@ export interface Question {
   points: number
 }
 
-export interface UploadUserFile { name: string; url: string }
+export interface UploadUserFile { name: string, url: string }
 
 export interface ILessonContent {
   order: number
@@ -81,6 +81,11 @@ export const useCourseStore = defineStore('course', () => {
   const course_ = ref<ICourse | null>(null)
   const chapter = ref<any>(null)
   const lesson = ref<any>(null)
+  const courses_list = ref<ICourse[]>([])
+
+  function setCourses(courses: any) {
+    courses_list.value = courses
+  }
 
   function setCourse(course: ICourse) {
     course_.value = course
@@ -95,6 +100,8 @@ export const useCourseStore = defineStore('course', () => {
   }
 
   return {
+    setCourses,
+    courses_list,
     course_,
     setCourse,
     chapter,

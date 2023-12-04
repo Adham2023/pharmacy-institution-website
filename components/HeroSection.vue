@@ -1,3 +1,7 @@
+<script setup>
+// const { status } = useAuth()
+</script>
+
 <template>
   <div class="herobg_home bg-cover bg-bottom" h-45rem w-full justify-center overflow-hidden px-1em>
     <div class="h-4rem" />
