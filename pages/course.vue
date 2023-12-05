@@ -56,7 +56,7 @@ onMounted(async () => {
         <button flex="~" items-center rounded-md bg-gray text-white @click="router.back()">
           <div i-carbon-arrow-left />
         </button>
-        <NuxtLink to="/" flex="~ gap-2" items-center>
+        <NuxtLink to="/courses" flex="~ gap-2" items-center>
           <div i-carbon-home /> <span text-gray><div i-carbon-caret-right /></span>
         </NuxtLink>
         <NuxtLink v-for="(b_item, index) in breadcrumb" :key="index" text-sm :class="`text-${index < breadcrumb.length - 1 ? 'blue-400' : ''}`" :to="b_item.url" flex="~">
