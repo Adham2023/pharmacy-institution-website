@@ -9,7 +9,7 @@ export default defineNuxtConfig({
       baseUrlDevelopment: process.env.BASE_URL_DEVELOPMENT,
     },
   },
-  // ssr: false,
+  ssr: true,
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
