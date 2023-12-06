@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const courseStore = useCourseStore()
 
-const { data: courses, pending } = await useApiFetch<ICourse[]>(`/courses`, {
+const { data: courses } = await useApiFetch<ICourse[]>(`/courses`, {
   method: 'GET',
 })
 
@@ -12,7 +12,7 @@ courseStore.setCourses(courses.value)
   <section class="mx-auto p-6 container" mb-5rem>
     <div flex="~" mt-2em justify-between py-1em>
       <h2 text-2xl font-400 text="#0037A0">
-        Kurslar ro'yxati {{ pending }}
+        Kurslar ro'yxati
       </h2>
     </div>
     <div mb-1rem class="grid grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2">

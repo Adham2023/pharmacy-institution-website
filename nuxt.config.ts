@@ -3,13 +3,6 @@ import { pwa } from './config/pwa'
 import { appDescription } from './constants/index'
 
 export default defineNuxtConfig({
-  runtimeConfig: {
-    public: {
-      baseUrlProduction: process.env.BASE_URL_PRODUCTION,
-      baseUrlDevelopment: process.env.BASE_URL_DEVELOPMENT,
-    },
-  },
-  ssr: true,
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
@@ -49,7 +42,6 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: false,
       routes: ['/'],
-      ignore: ['/hi'],
     },
   },
 

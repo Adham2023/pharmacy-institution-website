@@ -4,9 +4,6 @@ import { appName } from '~/constants'
 useHead({
   title: appName,
 })
-
-const auth = useAuthStore()
-await auth.getUser()
 </script>
 
 <template>

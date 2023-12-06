@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { defineStore } from 'pinia'
 
 interface UserAction {
@@ -68,6 +69,7 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   async function Login(credentials: { username: string, password: string }) {
+    console.log('login')
     await useApiFetch<{ data: User, message: string }>('/auth/login', { method: 'POST', body: credentials })
     // if (data.value)
     await getUser()

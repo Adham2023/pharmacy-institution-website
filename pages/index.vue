@@ -1,8 +1,11 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'home',
-  auth: false,
+  // auth: false,
 })
+
+// const auth = useAuthStore()
+// await auth.getUser()
 </script>
 
 <template>
