@@ -18,14 +18,15 @@ if (cookie.value) {
   })
   auth.user = user as IUser
 }
-// eslint-disable-next-line no-console
-console.log('cookie', cookie.value)
-const csrs = await api.get<ICourse[]>('/courses', {
-  headers: {
-    Authorization: `Bearer ${cookie.value}`,
-  },
-})
-courses.value = csrs
+
+if (cookie.value) {
+  const csrs = await api.get<ICourse[]>('/courses', {
+    headers: {
+      Authorization: `Bearer ${cookie.value}`,
+    },
+  })
+  courses.value = csrs
+}
 // })
 </script>
 
@@ -33,7 +34,7 @@ courses.value = csrs
   <main>
     <HeroSection />
     <pre>
-      {{ csrs }}
+      {{ courses }}
     </pre>
     <ListOfCoursesSection />
     <div h-5rem />
