@@ -37,5 +37,7 @@ ENV NUXT_APP_VERSION=${NUXT_APP_VERSION}
 # Run in production mode
 ENV NODE_ENV=production
 
+# EXPOSE 3000
+
 # start the app
 CMD [ "node", "/app/.output/server/index.mjs" ]
