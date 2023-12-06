@@ -68,13 +68,14 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   async function Login(credentials: { username: string, password: string }) {
-    const { data } = await useApiFetch<{ data: User, message: string }>('/auth/login', { method: 'POST', body: credentials })
-    if (data.value)
-      user.value = data.value.data
+    await useApiFetch<{ data: User, message: string }>('/auth/login', { method: 'POST', body: credentials })
+    // if (data.value)
+    await getUser()
+    //   user.value = data.value.data
   }
 
   async function getUser() {
-    const { data } = await useApiFetch<User>('/users/one', { method: 'GET' })
+    const { data } = await useApiFetch<User>('/auth/profile', { method: 'GET' })
     user.value = data.value
     // console.error(error)
   }
