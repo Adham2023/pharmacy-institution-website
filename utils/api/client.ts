@@ -11,7 +11,7 @@ export default class Client {
 
   async raw<T>(url: string, method: 'GET' | 'HEAD' | 'PATCH' | 'POST' | 'PUT' | 'DELETE' | 'CONNECT' | 'OPTIONS' | 'TRACE' | 'get' | 'head' | 'patch' | 'post' | 'put' | 'delete' | 'connect' | 'options' | 'trace' | undefined, options?: FetchOptions) {
     try {
-      const data = await $fetch<T>(`${this.baseUrl}${url}`, {
+      const data = await $fetch.raw<T>(`${this.baseUrl}${url}`, {
         ...options,
         ...this.options,
         method,
@@ -58,10 +58,12 @@ export default class Client {
         ...this.options,
         method: 'GET',
       })
+
+      // console.log('data', data)
       return data
     }
     catch (error) {
-      return Promise.reject(error)
+      return error
     }
   }
 

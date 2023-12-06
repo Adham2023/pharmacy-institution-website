@@ -4,13 +4,22 @@ definePageMeta({
   // auth: false,
 })
 
-// const auth = useAuthStore()
-// await auth.getUser()
+const courses = ref<any>()
+
+onMounted(async () => {
+  const auth = useAuthStore()
+
+  const csrs = await auth.getAllCourses()
+  courses.value = csrs
+})
 </script>
 
 <template>
   <main>
     <HeroSection />
+    <pre>
+      {{ courses }}
+    </pre>
     <ListOfCoursesSection />
     <div h-5rem />
     <StatsSection />

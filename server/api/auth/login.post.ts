@@ -14,13 +14,17 @@ export default defineEventHandler(async (event) => {
       },
     })
 
-    const cookies = (res?.headers.get('Set-Cookie') || (res?.headers.get('set-cookie') || '')).split(',')
+    // eslint-disable-next-line no-console
+    console.log('res', res)
+
+    const cookies = (res?.headers.get('set-cookie') || '').split(',')
     for (const cookie of cookies)
       appendHeader(event, 'set-cookie', cookie)
 
     return { message: 'success' }
   }
   catch (error) {
+    // console.error(error)
     throw createError('An error occurred while fetching data')
   }
 })

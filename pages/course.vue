@@ -5,10 +5,11 @@ const sectionsDetailTagRef = ref<HTMLDetailsElement[]>([])
 const route = useRoute()
 const router = useRouter()
 const courseStore = useCourseStore()
-const { data: course } = await useFetch<ICourse>(`https://api.pharma-study.uz/courses/${(route.params as any).courseSlug as string}`, {
-  credentials: 'include',
+const api = useApi()
+onMounted(async () => {
+  const course = await api.get<ICourse>(`/courses/${(route.params as any).courseSlug as string}`)
+  courseStore.setCourse(course as ICourse)
 })
-courseStore.setCourse(course.value as any)
 function chapterClicked(chapter_index: number) {
   // console.log('chapterClicked', chapter_index, sectionsDetailTagRef.value)
   if (sectionsDetailTagRef.value.length > 0)
@@ -57,23 +58,40 @@ onMounted(async () => {
           <div i-carbon-arrow-left />
         </button>
         <NuxtLink to="/courses" flex="~ gap-2" items-center>
-          <div i-carbon-home /> <span text-gray><div i-carbon-caret-right /></span>
+          <div i-carbon-home /> <span text-gray>
+            <div i-carbon-caret-right />
+          </span>
         </NuxtLink>
-        <NuxtLink v-for="(b_item, index) in breadcrumb" :key="index" text-sm :class="`text-${index < breadcrumb.length - 1 ? 'blue-400' : ''}`" :to="b_item.url" flex="~">
-          {{ b_item.title }} <span v-if="index < breadcrumb.length - 1" mx-1 text-gray><div i-carbon-caret-right /></span>
+        <NuxtLink
+          v-for="(b_item, index) in breadcrumb" :key="index" text-sm
+          :class="`text-${index < breadcrumb.length - 1 ? 'blue-400' : ''}`" :to="b_item.url" flex="~"
+        >
+          {{ b_item.title }} <span v-if="index < breadcrumb.length - 1" mx-1 text-gray>
+            <div i-carbon-caret-right />
+          </span>
         </NuxtLink>
       </div>
       <div class="grid-cols-[20rem_auto]" grid gap-3 overflow-y-auto>
         <div absolute grid-col-start-1 h-100vh w-20rem b-orange3 rounded-md pt-2.5em>
-          <details v-for="(chapter, index) in courseStore.course_.sections" ref="sectionsDetailTagRef" :key="chapter.id" mb-1 rounded-md>
+          <details
+            v-for="(chapter, index) in courseStore.course_.sections" ref="sectionsDetailTagRef" :key="chapter.id"
+            mb-1 rounded-md
+          >
             <summary>
-              <NuxtLink :class=" $route.path.includes(`/course/${courseStore.course_.slug}/${chapter.slug}`) ? 'text-orange-500' : ''" :to="{ path: `/course/${courseStore.course_.slug}/${chapter.slug}`, hash: '#chapter-title' }" p-2 @click="chapterClicked(index)">
+              <NuxtLink
+                :class="$route.path.includes(`/course/${courseStore.course_.slug}/${chapter.slug}`) ? 'text-orange-500' : ''"
+                :to="{ path: `/course/${courseStore.course_.slug}/${chapter.slug}`, hash: '#chapter-title' }" p-2
+                @click="chapterClicked(index)"
+              >
                 {{ chapter.title }}
               </NuxtLink>
             </summary>
             <ul ml-1em b-l-1 border-l b-gray b-dotted bg-white pl-4>
               <li v-for="lesson in chapter.lessons" :key="lesson.id" b-b-1 border-b b-gray b-dotted p-y-3>
-                <NuxtLink active-class="text-blue-400 " rounded-md p-1 :to="{ path: `/course/${courseStore.course_.slug}/${chapter.slug}/${lesson.slug}`, hash: '#lesson-title' }">
+                <NuxtLink
+                  active-class="text-blue-400 " rounded-md p-1
+                  :to="{ path: `/course/${courseStore.course_.slug}/${chapter.slug}/${lesson.slug}`, hash: '#lesson-title' }"
+                >
                   {{ lesson.title.slice(0, 35) }} {{ lesson.title.length > 35 ? '...' : '' }}
                 </NuxtLink>
               </li>

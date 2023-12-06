@@ -11,7 +11,7 @@ export function useApiFetch<T>(path: string, options: UseFetchOptions<T> = {}) {
   }
   // console.log('useRequestHeaders', useRequestHeaders(['cookie', 'referer']))
 
-  return useFetch(`https://api.pharma-study.uz${path}`, {
+  return useFetch(`http://localhost:2000${path}`, {
     credentials: 'include',
     ...options,
     watch: false,

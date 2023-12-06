@@ -68,18 +68,22 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   async function Login(credentials: { username: string, password: string }) {
-    // console.log('login')
     await $fetch<{ data: User, message: string }>('/api/auth/login', { method: 'POST', body: credentials })
-    // if (data.value)
     await getUser()
-    //   user.value = data.value.data
   }
 
   async function getUser() {
-    const data = await $fetch<User>('/api/auth/user')
+    const data = await $fetch<User>('/api/auth/user', {
+      headers: useRequestHeaders(['cookies']),
+    })
     user.value = data
-    // console.error(error)
   }
 
-  return { user, Login, getUser, isLoggedIn, logOut }
+  async function getAllCourses() {
+    const courses = await $fetch<ICourse[]>('/api/course/all', {
+    })
+    return courses
+  }
+
+  return { user, Login, getUser, isLoggedIn, logOut, getAllCourses }
 })

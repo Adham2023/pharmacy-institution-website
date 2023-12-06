@@ -59,8 +59,7 @@ function seeking() {
   // If a seek is detected, reset to the last played time
   if (lessonVideoRef.value) {
     if (lessonVideoRef.value.currentTime > furthestPlayedTime.value) {
-      // eslint-disable-next-line no-console
-      console.log('Seeking beyond watched content. Resetting position.')
+      // console.log('Seeking beyond watched content. Resetting position.')
       lessonVideoRef.value.currentTime = furthestPlayedTime.value
     }
   }

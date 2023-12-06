@@ -34,20 +34,20 @@ onMounted(() => {
           <div class="flex content-start items-center gap-3" mb-3>
             <div class="btn" i-carbon-video />
           </div>
-          <VideoWatcher :content-id="content._id" :video-url="`https://api.pharma-study.uz/${content.videoUrl[0].url}`" :lesson-id="courseStore.lesson._id" />
+          <VideoWatcher :content-id="content._id" :video-url="`http://localhost:2000/${content.videoUrl[0].url}`" :lesson-id="courseStore.lesson._id" />
         </div>
         <div v-if="content.format === 'image'" flex="~ col content-center items-start">
           <div class="flex content-start items-center gap-3" mb-3>
             <div class="btn" i-carbon-image />
           </div>
-          <img mx-auto :src="`https://api.pharma-study.uz/${content.imageUrl[0].url}`" alt="" srcset="">
+          <img mx-auto :src="`http://localhost:2000/${content.imageUrl[0].url}`" alt="" srcset="">
         </div>
         <div v-if="content.format === 'pdf'" py-6>
           <div class="flex content-start items-center gap-3">
             <div class="btn" i-carbon-document-pdf />
           </div>
           <ClientOnly>
-            <PdfViewer :key="content._id" :pdf-url="`https://api.pharma-study.uz/${content.pdfUrl[0].url}`" />
+            <PdfViewer :key="content._id" :pdf-url="`http://localhost:2000/${content.pdfUrl[0].url}`" />
           </ClientOnly>
         </div>
       </div>

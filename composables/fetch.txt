@@ -5,7 +5,7 @@ import type { UseFetchOptions } from 'nuxt/app'
 export async function fetchWithCookie(event: H3Event, url: string) {
   /* Get the response from the server endpoint */
   const res = await $fetch.raw(`${url}`, {
-    baseURL: 'https://api.pharma-study.uz',
+    baseURL: 'http://localhost:2000',
     method: 'GET',
   })
   /* Get the cookies from the response */
