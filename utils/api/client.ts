@@ -15,6 +15,8 @@ export default class Client {
         ...options,
         ...this.options,
         method,
+        credentials: 'include',
+
       })
       return data
     }
@@ -29,6 +31,8 @@ export default class Client {
         ...options,
         ...this.options,
         method: 'POST',
+        credentials: 'include',
+
       })
       return data
     }
@@ -43,6 +47,8 @@ export default class Client {
         ...options,
         ...this.options,
         method: 'PUT',
+        credentials: 'include',
+
       })
       return data
     }
@@ -56,6 +62,7 @@ export default class Client {
       const data = await $fetch<T>(`${this.baseUrl}${url}`, {
         ...options,
         ...this.options,
+        credentials: 'include',
         method: 'GET',
       })
 
@@ -73,6 +80,8 @@ export default class Client {
         ...options,
         ...this.options,
         method: 'DELETE',
+        credentials: 'include',
+
       })
       return data
     }

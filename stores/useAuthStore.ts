@@ -47,7 +47,7 @@ interface UserProfile {
   purchasedCourses: ICourse[]
 }
 
-interface User {
+export interface IUser {
   _id: string
   username: string
   role: UserRole
@@ -57,26 +57,41 @@ interface User {
 }
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref<User | null>(null)
+  const user = ref<IUser | null>(null)
 
   const isLoggedIn = computed(() => !!user.value)
 
   async function logOut() {
-    await $fetch('/api/auth/logout', { method: 'POST' })
-    user.value = null
-    navigateTo('/')
+    try {
+      await $fetch('/api/auth/logout', { method: 'POST' })
+      user.value = null
+      navigateTo('/')
+    }
+    catch (error) {
+
+    }
   }
 
   async function Login(credentials: { username: string, password: string }) {
-    await $fetch<{ data: User, message: string }>('/api/auth/login', { method: 'POST', body: credentials })
-    await getUser()
+    try {
+      await $fetch<{ data: IUser, message: string }>('/api/auth/login', { method: 'POST', body: credentials })
+      await getUser()
+    }
+    catch (error) {
+
+    }
   }
 
   async function getUser() {
-    const data = await $fetch<User>('/api/auth/user', {
-      headers: useRequestHeaders(['cookies']),
-    })
-    user.value = data
+    try {
+      const data = await $fetch<IUser>('/api/auth/user', {
+        headers: useRequestHeaders(['cookies']),
+      })
+      user.value = data
+    }
+    catch (error) {
+
+    }
   }
 
   async function getAllCourses() {

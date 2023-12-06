@@ -1,24 +1,39 @@
 <script setup lang="ts">
+import type { IUser } from '~/stores/useAuthStore'
+
 definePageMeta({
   layout: 'home',
   // auth: false,
 })
 
 const courses = ref<any>()
-
-onMounted(async () => {
-  const auth = useAuthStore()
-
-  const csrs = await auth.getAllCourses()
-  courses.value = csrs
+const api = useApi()
+const cookie = useCookie('Authorization')
+const auth = useAuthStore()
+if (cookie.value) {
+  const user = await api.get<IUser>('/courses', {
+    headers: {
+      Authorization: `Bearer ${cookie.value}`,
+    },
+  })
+  auth.user = user as IUser
+}
+// eslint-disable-next-line no-console
+console.log('cookie', cookie.value)
+const csrs = await api.get<ICourse[]>('/courses', {
+  headers: {
+    Authorization: `Bearer ${cookie.value}`,
+  },
 })
+courses.value = csrs
+// })
 </script>
 
 <template>
   <main>
     <HeroSection />
     <pre>
-      {{ courses }}
+      {{ csrs }}
     </pre>
     <ListOfCoursesSection />
     <div h-5rem />
