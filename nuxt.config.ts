@@ -3,6 +3,11 @@ import { pwa } from './config/pwa'
 import { appDescription } from './constants/index'
 
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      baseUrl: 'https://api.pharma-study.uz',
+    },
+  },
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',

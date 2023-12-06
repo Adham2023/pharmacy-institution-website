@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { defineStore } from 'pinia'
 
 interface UserAction {
@@ -63,22 +62,22 @@ export const useAuthStore = defineStore('auth', () => {
   const isLoggedIn = computed(() => !!user.value)
 
   async function logOut() {
-    await useApiFetch('/auth/logout', { method: 'POST' })
+    await $fetch('/api/auth/logout', { method: 'POST' })
     user.value = null
     navigateTo('/')
   }
 
   async function Login(credentials: { username: string, password: string }) {
-    console.log('login')
-    await useApiFetch<{ data: User, message: string }>('/auth/login', { method: 'POST', body: credentials })
+    // console.log('login')
+    await $fetch<{ data: User, message: string }>('/api/auth/login', { method: 'POST', body: credentials })
     // if (data.value)
     await getUser()
     //   user.value = data.value.data
   }
 
   async function getUser() {
-    const { data } = await useApiFetch<User>('/auth/profile', { method: 'GET' })
-    user.value = data.value
+    const data = await $fetch<User>('/api/auth/user')
+    user.value = data
     // console.error(error)
   }
 

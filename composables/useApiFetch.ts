@@ -6,7 +6,7 @@ export function useApiFetch<T>(path: string, options: UseFetchOptions<T> = {}) {
 
   if (process.server) {
     headers = {
-      ...useRequestHeaders(['cookie', 'referer']),
+      ...useRequestHeaders(['cookies', 'referer']),
     }
   }
   // console.log('useRequestHeaders', useRequestHeaders(['cookie', 'referer']))
