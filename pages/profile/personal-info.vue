@@ -18,6 +18,8 @@ const schema = objectAsync({
   gender: enum_(gender),
 })
 
+const api = useApi()
+
 type Schema = Input<typeof schema>
 
 const state = reactive({
@@ -32,6 +34,15 @@ const state = reactive({
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   // Do something with event.data
   console.log(event.data)
+  if (auth.user) {
+    const response = await api.put('/profile/personal-info', {
+      body: {
+        profile_id: auth.user.profile._id,
+        state,
+      },
+    })
+    auth.user.profile = response
+  }
 }
 
 onMounted(() => {

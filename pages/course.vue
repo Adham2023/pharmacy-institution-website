@@ -9,12 +9,15 @@ const cookie = useCookie('Authorization')
 
 const api = useApi()
 // onMounted(async () => {
+// if (cookie.value) {
 const course = await api.get<ICourse>(`/courses/${(route.params as any).courseSlug as string}`, {
   headers: {
     Authorization: `Bearer ${cookie.value}`,
   },
+
 })
 courseStore.setCourse(course as ICourse)
+// }
 // })
 function chapterClicked(chapter_index: number) {
   // console.log('chapterClicked', chapter_index, sectionsDetailTagRef.value)

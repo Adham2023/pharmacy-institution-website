@@ -31,6 +31,19 @@ interface UserProfilePassport {
   _id: string
 }
 
+export enum ProfileDocumentTypeEnum {
+  passport = 'passport',
+  ID = 'ID',
+  diploma = 'diploma',
+}
+
+export interface IProfileAdditionalInterface {
+  document_serial: string
+  document_number: string
+  files: { name: string, url: string }[]
+  doc_type: ProfileDocumentTypeEnum
+}
+
 interface UserProfile {
   _id: string
   email: string
@@ -44,7 +57,7 @@ interface UserProfile {
   date_of_birth: string
   phone_number: string
   passport_data: UserProfilePassport
-  additional_documents: { name: string, url: string }[]
+  additional_documents: IProfileAdditionalInterface[]
   is_deleted: true
   purchasedCourses: ICourse[]
 }

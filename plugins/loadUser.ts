@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 export default defineNuxtPlugin(async () => {
   try {
     const cookie = useCookie('Authorization')
@@ -11,7 +10,7 @@ export default defineNuxtPlugin(async () => {
             Authorization: `Bearer ${cookie.value}`,
           },
         })
-        console.log('user', user)
+        // console.log('user', user)
         auth.user = user as IUser
       }
     }
