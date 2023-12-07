@@ -27,11 +27,11 @@ const auth = useAuthStore()
         <button v-if="!auth.isLoggedIn" rounded-full bg-white px-5 text="#0037A0">
           Kirish
         </button>
-        <div v-else>
-          <button m-r-1 rounded-full bg-white p-1 px-5 text="#0037A0" @click="auth.logOut()">
-            Chiqish
+        <div v-else flex="~ gap-1">
+          <button flex="~ gap-1 items-center " m-r-1 rounded-full bg-white px-5 text="red-500" @click="auth.logOut()">
+            <div i-carbon-exit /> Chiqish
           </button>
-          <NuxtLink rounded-full bg-white p-1 px-5 btn hover:bg-white class="text-[#0037A0]" to="/profile">
+          <NuxtLink rounded-full bg-white px-5 btn hover:bg-white class="text-[#0037A0]" to="/profile">
             Profil
           </NuxtLink>
         </div>

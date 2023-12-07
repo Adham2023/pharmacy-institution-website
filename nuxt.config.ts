@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
     '@nuxt/content',
+    '@nuxt/ui',
     // '@sidebase/nuxt-auth',
   ],
 

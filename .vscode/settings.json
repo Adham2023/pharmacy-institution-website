@@ -1,6 +1,10 @@
 {
   "files.associations": {
     "*.css": "postcss"
+
+  },
+  "editor.quickSuggestions": {
+    "strings": true
   },
 
   // Enable the ESlint flat config support
@@ -43,14 +47,19 @@
     "yaml"
   ],
   "cSpell.words": [
+    "antfu",
     "cmps",
+    "consola",
     "csrs",
     "hamshira",
     "haqida",
     "herobg",
+    "iconify",
     "Mavzular",
     "nodownload",
     "Nuxt",
+    "nuxtjs",
+    "ofetch",
     "pharma",
     "pinfl",
     "pinia",
@@ -58,6 +67,10 @@
     "pspdfkit",
     "rehype",
     "soni",
-    "Testlar"
+    "tato",
+    "Testlar",
+    "typecheck",
+    "unocss",
+    "valibot"
   ]
 }

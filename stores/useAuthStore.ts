@@ -35,11 +35,13 @@ interface UserProfile {
   _id: string
   email: string
   first_name: string
+  profile_picture: { name: string, url: string }[]
   is_student: false
   last_name: string
   middle_name: string
   position: string
   contacts: []
+  date_of_birth: string
   phone_number: string
   passport_data: UserProfilePassport
   additional_documents: { name: string, url: string }[]
@@ -54,6 +56,7 @@ export interface IUser {
   profile: UserProfile
   modules: string[]
   actions: string[]
+
 }
 
 export const useAuthStore = defineStore('auth', () => {
@@ -87,6 +90,8 @@ export const useAuthStore = defineStore('auth', () => {
       const data = await $fetch<IUser>('/api/auth/user', {
         headers: useRequestHeaders(['cookies']),
       })
+      // eslint-disable-next-line no-console
+      console.log('data', data)
       user.value = data
     }
     catch (error) {

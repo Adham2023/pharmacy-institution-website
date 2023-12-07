@@ -14,9 +14,6 @@ export default defineEventHandler(async (event) => {
       },
     })
 
-    // eslint-disable-next-line no-console
-    console.log('res', res)
-
     const cookies = (res?.headers.get('set-cookie') || '').split(',')
     for (const cookie of cookies)
       appendHeader(event, 'set-cookie', cookie)
@@ -24,7 +21,6 @@ export default defineEventHandler(async (event) => {
     return { message: 'success' }
   }
   catch (error) {
-    // console.error(error)
     throw createError('An error occurred while fetching data')
   }
 })

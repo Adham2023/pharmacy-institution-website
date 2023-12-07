@@ -1,15 +1,11 @@
 <script setup lang="ts">
 const courseStore = useCourseStore()
-
-// const { data: courses } = await useApiFetch<ICourse[]>(`/courses`, {
-//   method: 'GET',
-// })
-const auth = useAuthStore()
-
-onMounted(async () => {
-  const courses = await auth.getAllCourses()
+const apiRequest = useApi()
+const cookie = useCookie('Authorization')
+if (cookie.value) {
+  const courses = await apiRequest.get('/courses')
   courseStore.setCourses(courses)
-})
+}
 </script>
 
 <template>
