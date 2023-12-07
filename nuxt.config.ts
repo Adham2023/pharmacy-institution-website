@@ -5,7 +5,7 @@ import { appDescription } from './constants/index'
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      baseUrl: 'https://ph-api.stanroads.com', // 'https://api.pharma-study.uz',
+      baseUrl: 'https://api.pharma-study.uz',
     },
   },
   modules: [

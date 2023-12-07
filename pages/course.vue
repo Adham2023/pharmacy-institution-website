@@ -5,11 +5,17 @@ const sectionsDetailTagRef = ref<HTMLDetailsElement[]>([])
 const route = useRoute()
 const router = useRouter()
 const courseStore = useCourseStore()
+const cookie = useCookie('Authorization')
+
 const api = useApi()
-onMounted(async () => {
-  const course = await api.get<ICourse>(`/courses/${(route.params as any).courseSlug as string}`)
-  courseStore.setCourse(course as ICourse)
+// onMounted(async () => {
+const course = await api.get<ICourse>(`/courses/${(route.params as any).courseSlug as string}`, {
+  headers: {
+    Authorization: `Bearer ${cookie.value}`,
+  },
 })
+courseStore.setCourse(course as ICourse)
+// })
 function chapterClicked(chapter_index: number) {
   // console.log('chapterClicked', chapter_index, sectionsDetailTagRef.value)
   if (sectionsDetailTagRef.value.length > 0)

@@ -28,9 +28,9 @@ const auth = useAuthStore()
           Kirish
         </button>
         <div v-else>
-          <!-- <button m-r-1 rounded-full bg-white p-1 px-5 text="#0037A0" @click="auth.logOut({ redirect: true, callbackUrl: '/' })">
+          <button m-r-1 rounded-full bg-white p-1 px-5 text="#0037A0" @click="auth.logOut()">
             Chiqish
-          </button> -->
+          </button>
           <NuxtLink rounded-full bg-white p-1 px-5 btn hover:bg-white class="text-[#0037A0]" to="/profile">
             Profil
           </NuxtLink>

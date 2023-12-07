@@ -4,6 +4,25 @@ import { appName } from '~/constants'
 useHead({
   title: appName,
 })
+
+// const courses = ref<any>()
+// const api = useApi()
+// const cookie = useCookie('Authorization')
+// const auth = useAuthStore()
+// if (cookie.value) {
+// const user = await api.get<IUser>('/auth/profile', {
+//   headers: {
+//     Authorization: `Bearer ${cookie.value}`,
+//   },
+// })
+// auth.user = user as IUser
+// const csrs = await api.get<ICourse[]>('/courses', {
+//   headers: {
+//     Authorization: `Bearer ${cookie.value}`,
+//   },
+// })
+// courses.value = csrs
+// }
 </script>
 
 <template>
