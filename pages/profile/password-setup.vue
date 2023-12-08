@@ -78,7 +78,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         </UFormGroup>
 
         <div text-center>
-          <UButton :loading="saving" type="primary" color="#0037A0">
+          <UButton :loading="saving" type="primary" bg="#0037A0">
             Submit {{ saving ? '...' : '' }}
           </UButton>
         </div>
