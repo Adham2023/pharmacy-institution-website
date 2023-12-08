@@ -47,7 +47,7 @@ onMounted(() => {
             <div class="btn" i-carbon-document-pdf />
           </div>
           <ClientOnly>
-            <PdfViewer :key="content._id" :pdf-url="`http://localhost:2000/upload/${content.pdfUrl[0].name}`" />
+            <PdfViewer :key="content._id" :pdf-url="`https://api.pharma-study.uz/upload/${content.pdfUrl[0].name}`" />
           </ClientOnly>
         </div>
       </div>
