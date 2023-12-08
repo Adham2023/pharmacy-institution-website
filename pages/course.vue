@@ -32,8 +32,7 @@ watch(route, (old_val, new_val) => {
 }, { deep: true })
 
 const breadcrumb = computed(() => {
-  // eslint-disable-next-line no-console
-  console.log('course', courseStore.course_)
+  // console.log('course', courseStore.course_)
   if (!courseStore.course_) { return [] }
   else {
     const items = [{ title: courseStore.course_.title.length > 35 ? `${courseStore.course_.title.slice(0, 30)}...` : courseStore.course_.title, url: `/course/${courseStore.course_.slug}` }]
