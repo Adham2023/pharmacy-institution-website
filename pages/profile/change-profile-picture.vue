@@ -52,7 +52,7 @@ async function onSubmit() {
 <template>
   <div>
     <div bg="#0037A0" rounded-2xl py-1em text-center text-white>
-      Bog'lanish
+      Rasmni o'zgartirish
     </div>
     <div p-x-2rem p-t-2em>
       <!-- <img v-if="user && user.profile.profile_picture.length > 0" :src="baseUrl + user.profile.profile_picture[0].url" alt="" srcset=""> -->
@@ -65,7 +65,7 @@ async function onSubmit() {
         <span id="custom-text">{{ fileToUpload?.name }}</span>
       </div>
       <div text-center>
-        <UButton type="primary" color="blue" @click="onSubmit">
+        <UButton type="primary" color="#0037A0" @click="onSubmit">
           Saqlash
         </UButton>
       </div>

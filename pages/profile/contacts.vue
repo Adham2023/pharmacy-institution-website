@@ -63,7 +63,7 @@ onMounted(() => {
         </UFormGroup>
 
         <div text-center>
-          <UButton :loading="saving" type="primary" color="blue">
+          <UButton :loading="saving" type="primary" color="#0037A0">
             Saqlash {{ saving ? '...' : '' }}
           </UButton>
         </div>
