@@ -85,7 +85,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       <UButton bg="gray-4" hover:bg="gray-7" label="Yangi" icon="i-heroicons-plus" text-black @click="isOpen = true" />
       <table w-full>
         <caption>
-          Qo'shimcha hujjatlar to'plami:
+          Qo'shimcha hujjatlar to'plami: (ID, Passport, Diplom)
         </caption>
         <thead>
           <tr>

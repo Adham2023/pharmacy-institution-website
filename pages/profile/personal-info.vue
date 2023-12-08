@@ -16,6 +16,9 @@ const schema = objectAsync({
   date_of_birth: date('Tug\'ilgan sanani kiritilmagan'),
   // address: string(),
   gender: enum_(gender),
+  pinfl: string([minLength(14, 'JSHSHIR kiritilmagan')]),
+  serial: string([minLength(2, 'Passport seriyasi kiritilmagan')]),
+  passport_number: string([minLength(2, 'Passport raqam kiritilmagan')]),
 })
 
 const api = useApi()
@@ -112,6 +115,16 @@ onMounted(() => {
 
         <UFormGroup label="Jinsi" name="gender">
           <USelect v-model="state.gender" option-attribute="name" :options="[{ name: 'Erkak', value: gender.male }, { name: 'Ayol', value: gender.female }]" />
+        </UFormGroup>
+
+        <UFormGroup label="JSHSHIR" name="pinfl">
+          <UInput v-model="state.pinfl" />
+        </UFormGroup>
+        <UFormGroup label="Passport seriyasi" name="serial">
+          <UInput v-model="state.serial" />
+        </UFormGroup>
+        <UFormGroup label="Passport raqami" name="passport_number">
+          <UInput v-model="state.passport_number" />
         </UFormGroup>
 
         <div text-center>
