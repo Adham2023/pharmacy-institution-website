@@ -6,9 +6,8 @@ import type { FormSubmitEvent } from '#ui/types'
 const auth = useAuthStore()
 
 const schema = objectAsync({
-  last_name: string([email('Familiyasi kiritilmagan')]),
-  first_name: string([minLength(9, 'Telefon raqam kiritilmagan')]),
-
+  email: string([email('Email kiritilmagan')]),
+  phone_number: string([minLength(9, 'Telefon raqam kiritilmagan')]),
 })
 
 type Schema = Input<typeof schema>
@@ -19,9 +18,27 @@ const state = reactive({
   // address: undefined,
 })
 
+const saving = ref(false)
+const api = useApi()
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   // Do something with event.data
-  console.log(event.data)
+  try {
+    saving.value = true
+    console.log(event.data)
+    if (auth.user) {
+      const response = await api.put('/profiles/contacts', {
+        body: {
+          profile_id: auth.user.profile._id,
+          ...state,
+        },
+      })
+      auth.user.profile = response
+    }
+    saving.value = false
+  }
+  catch (error) {
+    saving.value = false
+  }
 }
 
 onMounted(() => {
@@ -46,8 +63,8 @@ onMounted(() => {
         </UFormGroup>
 
         <div text-center>
-          <UButton type="primary" color="blue">
-            Submit
+          <UButton :loading="saving" type="primary" color="blue">
+            Saqlash {{ saving ? '...' : '' }}
           </UButton>
         </div>
       </UForm>

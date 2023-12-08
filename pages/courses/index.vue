@@ -5,7 +5,7 @@ definePageMeta({
 const courseStore = useCourseStore()
 const apiRequest = useApi()
 
-const { data, pending, refresh } = await useAsyncData(
+const { data } = await useAsyncData(
   'courses',
   () => apiRequest.get('/courses'),
 )
@@ -15,14 +15,7 @@ courseStore.setCourses(data.value)
 
 <template>
   <main>
-    <!-- {{ data }}
-
-    {{ error }}/ -->
-
     <HeroSectionCourse />
-    <button @click="refresh()">
-      refresh  {{ pending }}
-    </button>
     <ListOfCoursesPageSection />
   </main>
 </template>

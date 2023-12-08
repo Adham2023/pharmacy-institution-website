@@ -21,9 +21,14 @@ interface UserRole {
   pages: UserPage[]
 }
 
+enum gender {
+  male = 'male',
+  female = 'female',
+}
+
 interface UserProfilePassport {
   date_of_birth: string
-  gender: string
+  gender: gender
   pinfl: string
   serial: string
   passport_number: string
@@ -54,7 +59,7 @@ interface UserProfile {
   middle_name: string
   position: string
   contacts: []
-  date_of_birth: string
+  // date_of_birth: string
   phone_number: string
   passport_data: UserProfilePassport
   additional_documents: IProfileAdditionalInterface[]

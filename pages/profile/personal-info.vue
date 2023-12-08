@@ -6,7 +6,7 @@ import type { FormSubmitEvent } from '#ui/types'
 const auth = useAuthStore()
 enum gender {
   male = 'male',
-  female = 'femal',
+  female = 'female',
 }
 
 const schema = objectAsync({
@@ -22,26 +22,56 @@ const api = useApi()
 
 type Schema = Input<typeof schema>
 
-const state = reactive({
+const state = reactive<{
+  last_name: string
+  pinfl: string
+  serial: string
+  passport_number: string
+  copies: { name: string, url: string }[]
+  first_name: string
+  middle_name: string
+  date_of_birth: Date
+  gender: gender
+}>({
   last_name: '',
   first_name: '',
   middle_name: '',
-  date_of_birth: '',
-  // address: undefined,
+  pinfl: '',
+  serial: '',
+  passport_number: '',
+  copies: [],
+  date_of_birth: new Date(),
   gender: gender.male,
 })
 
+const dateValue = computed({
+  get: () => {
+    return state.date_of_birth.toISOString().substring(0, 10)
+  },
+  set: (value) => {
+    state.date_of_birth = new Date(value)
+  },
+})
+
+const saving = ref(false)
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   // Do something with event.data
-  console.log(event.data)
-  if (auth.user) {
-    const response = await api.put('/profile/personal-info', {
-      body: {
-        profile_id: auth.user.profile._id,
-        state,
-      },
-    })
-    auth.user.profile = response
+  try {
+    saving.value = true
+    console.log(event.data)
+    if (auth.user) {
+      const response = await api.put('/profiles/personal-info', {
+        body: {
+          profile_id: auth.user.profile._id,
+          ...state,
+        },
+      })
+      auth.user.profile = response
+    }
+    saving.value = false
+  }
+  catch (error) {
+    saving.value = false
   }
 }
 
@@ -49,7 +79,11 @@ onMounted(() => {
   state.last_name = auth.user!.profile.last_name
   state.first_name = auth.user!.profile.first_name
   state.middle_name = auth.user!.profile.middle_name
-  state.date_of_birth = auth.user!.profile.date_of_birth
+  state.pinfl = auth.user!.profile.passport_data.pinfl
+  state.serial = auth.user!.profile.passport_data.serial
+  state.passport_number = auth.user!.profile.passport_data.passport_number
+  state.gender = auth.user!.profile.passport_data.gender
+  state.date_of_birth = new Date(auth.user!.profile.passport_data.date_of_birth)
 })
 </script>
 
@@ -72,17 +106,17 @@ onMounted(() => {
           <UInput v-model="state.middle_name" />
         </UFormGroup>
 
-        <UFormGroup label="Tug'ilgan sanasi" name="date_of_birth">
-          <input v-model="state.date_of_birth" type="date">
+        <UFormGroup label="Tug'ilgan sanasi">
+          <input v-model="dateValue" type="date">
         </UFormGroup>
 
-        <UFormGroup label="Manzil" name="gender">
+        <UFormGroup label="Jinsi" name="gender">
           <USelect v-model="state.gender" option-attribute="name" :options="[{ name: 'Erkak', value: gender.male }, { name: 'Ayol', value: gender.female }]" />
         </UFormGroup>
 
         <div text-center>
-          <UButton type="primary" color="blue">
-            Submit
+          <UButton :loading="saving" type="primary" color="blue">
+            Submit {{ saving ? '...' : '' }}
           </UButton>
         </div>
       </UForm>
