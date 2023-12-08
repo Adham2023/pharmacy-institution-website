@@ -147,7 +147,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
           <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
             <UFormGroup label="Hujjat turi" name="doc_type">
-              <USelect v-model="state.doc_type" option-attribute="name" :options="[{ name: 'ID', value: ProfileDocumentTypeEnum.ID }, { name: 'Passport', value: ProfileDocumentTypeEnum.diploma }, { name: 'Diplom', value: ProfileDocumentTypeEnum.passport }]" />
+              <USelect v-model="state.doc_type" option-attribute="name" :options="[{ name: 'ID', value: ProfileDocumentTypeEnum.ID }, { name: 'Passport', value: ProfileDocumentTypeEnum.passport }, { name: 'Diplom', value: ProfileDocumentTypeEnum.diploma }]" />
             </UFormGroup>
 
             <UFormGroup label="Hujjat seriyasi" name="document_serial">

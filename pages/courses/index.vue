@@ -5,16 +5,18 @@ definePageMeta({
 const courseStore = useCourseStore()
 const apiRequest = useApi()
 const cookie = useCookie('Authorization')
-const { data } = await useAsyncData(
-  'courses',
-  () => apiRequest.get('/courses', {
-    headers: {
-      Authorization: `Bearer ${cookie.value}`,
-    },
-  }),
-)
+if (cookie.value) {
+  const { data } = await useAsyncData(
+    'courses',
+    () => apiRequest.get('/courses', {
+      headers: {
+        Authorization: `Bearer ${cookie.value}`,
+      },
+    }),
+  )
 
-courseStore.setCourses(data.value)
+  courseStore.setCourses(data.value)
+}
 </script>
 
 <template>
