@@ -7,10 +7,12 @@ export function useApi() {
 
   const accessToken = useCookie('Authorization')
   //   const refreshToken = useCookie('Refresh-Token')
-
+  // eslint-disable-next-line no-console
+  console.log('header', useRequestHeaders(['cookie']))
   const client = new Client(baseUrl as string, {
     headers: {
       Authorization: `Bearer ${accessToken.value}`,
+      ...useRequestHeaders(['cookie']),
     //   'Refresh-Token': `Bearer ${refreshToken.value}`,
     } as HeadersInit,
   })
