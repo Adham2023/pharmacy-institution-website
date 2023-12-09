@@ -1,6 +1,7 @@
 import { createError, defineEventHandler } from 'h3'
 import type { H3Event } from 'h3'
-import { useRequestHeaders } from 'nuxt/app'
+
+// import { useRequestHeaders } from 'nuxt/app'
 import { serverApi } from '../utils/serverApi'
 
 // Remove the duplicate import statement
