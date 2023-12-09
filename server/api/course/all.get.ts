@@ -11,8 +11,8 @@ export default defineEventHandler(async (event: H3Event): Promise<any> => {
 
   try {
     // Do the actual request to the external API
-    // eslint-disable-next-line no-console
-    console.log('headers', useRequestHeaders(['cookie']))
+
+    // console.log('headers', useRequestHeaders(['cookie']))
     const courses = await api.get<any>('/courses', {
       retry: 11,
     })
