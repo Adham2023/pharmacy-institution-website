@@ -83,6 +83,16 @@ export const useCourseStore = defineStore('course', () => {
   const lesson = ref<any>(null)
   const courses_list = ref<ICourse[]>([])
 
+  async function getCourses() {
+    try {
+      const { data } = await useFetch('/api/course/all')
+      courses_list.value = data.value
+    }
+    catch (error) {
+      courses_list.value = []
+    }
+  }
+
   function setCourses(courses: any) {
     courses_list.value = courses
   }
@@ -108,6 +118,7 @@ export const useCourseStore = defineStore('course', () => {
     lesson,
     setCurrentChapter,
     setCurrentLesson,
+    getCourses,
   }
 })
 

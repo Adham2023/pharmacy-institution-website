@@ -3,14 +3,15 @@ definePageMeta({
   layout: 'home',
 })
 const courseStore = useCourseStore()
-const apiRequest = useApi()
+await courseStore.getCourses()
+// const apiRequest = useApi()
 
-const { data } = await useAsyncData(
-  'courses',
-  () => apiRequest.get('/courses'),
-)
+// const { data } = await useAsyncData(
+//   'courses',
+//   () => apiRequest.get('/courses'),
+// )
 
-courseStore.setCourses(data.value)
+// courseStore.setCourses(data.value)
 </script>
 
 <template>
