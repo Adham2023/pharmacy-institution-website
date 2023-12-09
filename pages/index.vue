@@ -6,6 +6,10 @@ definePageMeta({
   // auth: false,
 })
 
+const auth = useAuthStore()
+if (!auth.isLoggedIn)
+  await auth.getUser()
+
 // })
 </script>
 
