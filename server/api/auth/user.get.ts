@@ -14,7 +14,7 @@ export default defineEventHandler(async (event: H3Event): Promise<any> => {
     // Do the actual request to the external API
 
     // console.log('headers', useRequestHeaders(['cookie']))
-    const courses = await api.get<any>('/courses', {
+    const courses = await api.get<any>('/auth/profile', {
       retry: 11,
     })
     return courses
