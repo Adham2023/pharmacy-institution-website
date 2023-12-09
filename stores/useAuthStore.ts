@@ -105,12 +105,9 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function getUser() {
     try {
-      const data = await $fetch<IUser>('/api/auth/user', {
-        headers: useRequestHeaders(['cookies']),
-      })
-      // eslint-disable-next-line no-console
-      console.log('data', data)
-      user.value = data
+      const { data } = await useFetch('/api/auth/user')
+
+      user.value = data.value
     }
     catch (error) {
 
