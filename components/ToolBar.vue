@@ -1,6 +1,19 @@
 <script setup>
 // const { status, signIn, signOut } = useAuth()
-const auth = useAuthStore()
+const authService = useAuthService()
+const authStore = useAuthStore()
+const router = useRouter()
+
+function logout() {
+  try {
+    authService.logout()
+    store.setUser(null)
+    router.push('/login')
+  }
+  catch (e) {
+    // console.log(e)
+  }
+}
 </script>
 
 <template>
@@ -24,11 +37,11 @@ const auth = useAuthStore()
           </span>
           <input type="search" name="q" class="rounded-full py-2 pl-10 pr-2 text-sm focus:text-gray-900 focus:outline-none" placeholder="Search..." autocomplete="off">
         </div> -->
-        <button v-if="!auth.isLoggedIn" rounded-full bg-white px-5 text="#0037A0">
+        <button v-if="!authStore.isLoggedIn" rounded-full bg-white px-5 text="#0037A0">
           Kirish
         </button>
         <div v-else flex="~ gap-1">
-          <button flex="~ gap-1 items-center " m-r-1 rounded-full bg-white px-5 text="red-500" @click="auth.logOut()">
+          <button flex="~ gap-1 items-center " m-r-1 rounded-full bg-white px-5 text="red-500" @click="logout()">
             <div i-carbon-exit /> Chiqish
           </button>
           <NuxtLink rounded-full bg-white px-5 btn hover:bg-white class="text-[#0037A0]" to="/profile">

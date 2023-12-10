@@ -120,5 +120,9 @@ export const useAuthStore = defineStore('auth', () => {
     return courses
   }
 
-  return { user, Login, getUser, isLoggedIn, logOut, getAllCourses }
+  function setUser(user_: any) {
+    user.value = user_
+  }
+
+  return { user, setUser, Login, getUser, isLoggedIn, logOut, getAllCourses }
 })

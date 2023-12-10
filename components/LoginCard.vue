@@ -1,10 +1,22 @@
 <script setup lang="ts">
 // const { signIn, status } = useAuth()
-const auth = useAuthStore()
-const credentials = reactive({
-  username: '',
-  password: '',
-})
+const username = ref('')
+const password = ref('')
+const authService = useAuthService()
+const store = useAuthStore()
+const router = useRouter()
+async function login() {
+  try {
+    await authService.login(username.value, password.value)
+    const user = await authService.getUser()
+    // console.log(user)
+    store.setUser(user)
+    router.push('/')
+  }
+  catch (e) {
+    // console.log(e)
+  }
+}
 </script>
 
 <template>
@@ -16,14 +28,14 @@ const credentials = reactive({
     <div class="mb-6 space-y-4">
       <div class="flex items-center border-1 rounded-lg p-2">
         <i class="i-carbon-user text-gray-400" />
-        <input v-model="credentials.username" class="w-full pl-2 outline-none" type="text" placeholder="Login">
+        <input v-model="username" class="w-full pl-2 outline-none" type="text" placeholder="Login">
       </div>
       <div class="flex items-center border-1 rounded-lg p-2">
         <i class="i-carbon-locked text-gray-400" />
-        <input v-model="credentials.password" class="w-full pl-2 outline-none" type="password" placeholder="Parol">
+        <input v-model="password" class="w-full pl-2 outline-none" type="password" placeholder="Parol">
       </div>
     </div>
-    <button class="w-full rounded-lg bg-[#0037A0] py-2 text-white" @click="auth.Login(credentials)">
+    <button class="w-full rounded-lg bg-[#0037A0] py-2 text-white" @click="login()">
       Kirish a <div i-carbon-circle-dash>
         ...
       </div>

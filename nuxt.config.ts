@@ -5,7 +5,7 @@ import { appDescription } from './constants/index'
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      baseUrl: 'https://api.pharma-study.uz',
+      apiUrl: 'https://api.pharma-study.uz', // 'http://localhost:2000',
     },
   },
   modules: [
@@ -19,9 +19,9 @@ export default defineNuxtConfig({
     // '@sidebase/nuxt-auth',
   ],
 
-  plugins: ['@/plugins/reset-scroll',
-  /* '@/plugins/loadUser' */
-  ],
+  // plugins: [
+  //   '@/plugins/reset-scroll',
+  // ],
 
   experimental: {
     // when using generate, payload js assets included in sw precache manifest

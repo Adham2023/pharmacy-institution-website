@@ -1,7 +1,7 @@
-import { H3Event } from 'h3'
+import type { H3Event } from 'h3'
 import { serverApi } from '../utils/serverApi'
 
-export default defineEventHandler (async (event) => {
+export default defineEventHandler(async (event: H3Event) => {
   const api = serverApi(event)
 
   try {

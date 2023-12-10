@@ -9,7 +9,7 @@ const courseStore = useCourseStore()
         Kurslar ro'yxati
       </h2>
     </div>
-    <div v-if="courseStore.courses_list.length > 0" mb-1rem class="grid grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2">
+    <div v-if="courseStore.courses_list && courseStore.courses_list.length > 0" mb-1rem class="grid grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2">
       <CoursePageCard
         v-for="course in courseStore.courses_list"
         :key="course._id"

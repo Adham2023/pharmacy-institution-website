@@ -1,19 +1,15 @@
-import { H3Event } from 'h3'
+// import { H3Event } from 'h3'
 import Client from '~/utils/api/client'
 
 // server composable for calling the external API through Nitro Server
 export function useApi() {
-  const { baseUrl } = useRuntimeConfig().public
+  const { apiUrl } = useRuntimeConfig().public
 
   const accessToken = useCookie('Authorization')
-  //   const refreshToken = useCookie('Refresh-Token')
-  // eslint-disable-next-line no-console
-  console.log('header', useRequestHeaders(['cookie']))
-  const client = new Client(baseUrl as string, {
+  // console.log('accessToken', accessToken.value)
+  const client = new Client(apiUrl as string, {
     headers: {
       Authorization: `Bearer ${accessToken.value}`,
-      ...useRequestHeaders(['cookie']),
-    //   'Refresh-Token': `Bearer ${refreshToken.value}`,
     } as HeadersInit,
   })
 

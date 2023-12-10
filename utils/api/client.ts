@@ -15,13 +15,12 @@ export default class Client {
         ...options,
         ...this.options,
         method,
-        credentials: 'include',
-
       })
+
       return data
     }
-    catch (error) {
-      return Promise.reject(error)
+    catch (err) {
+      return Promise.reject(err)
     }
   }
 
@@ -31,13 +30,26 @@ export default class Client {
         ...options,
         ...this.options,
         method: 'POST',
-        credentials: 'include',
+      })
 
+      return data
+    }
+    catch (err) {
+      return Promise.reject(err)
+    }
+  }
+
+  async get<T>(url: string, options?: FetchOptions) {
+    try {
+      const data = await $fetch<T>(`${this.baseUrl}${url}`, {
+        ...options,
+        ...this.options,
+        method: 'GET',
       })
       return data
     }
-    catch (error) {
-      return Promise.reject(error)
+    catch (err) {
+      return Promise.reject(err)
     }
   }
 
@@ -47,30 +59,12 @@ export default class Client {
         ...options,
         ...this.options,
         method: 'PUT',
-        credentials: 'include',
-
-      })
-      return data
-    }
-    catch (error) {
-      return Promise.reject(error)
-    }
-  }
-
-  async get<T>(url: string, options?: FetchOptions) {
-    try {
-      const data = await $fetch<T>(`${this.baseUrl}${url}`, {
-        ...options,
-        ...this.options,
-        credentials: 'include',
-        method: 'GET',
       })
 
-      // console.log('data', data)
       return data
     }
-    catch (error) {
-      return error
+    catch (err) {
+      return Promise.reject(err)
     }
   }
 
@@ -80,13 +74,12 @@ export default class Client {
         ...options,
         ...this.options,
         method: 'DELETE',
-        credentials: 'include',
-
       })
+
       return data
     }
-    catch (error) {
-      return Promise.reject(error)
+    catch (err) {
+      return Promise.reject(err)
     }
   }
 }
