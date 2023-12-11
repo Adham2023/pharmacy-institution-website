@@ -1,6 +1,4 @@
 <script setup>
-import StarRating from './StarRating.vue' // Make sure to create this component
-
 defineProps({
   teacher: {
     type: Object,
